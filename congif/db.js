@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 
 const db = process.env.MONGODB_URI;
+mongoose.Promise = global.Promise;
 
 const ConnectDB = async () =>{
  try{

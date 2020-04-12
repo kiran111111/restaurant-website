@@ -1,0 +1,10 @@
+extends layout.pug
+
+include mixins/_storeForm
+
+block content
+ section
+  .main__form--inner
+   .main__form--wrapper
+    h2.form__title=title
+    +storeForm()

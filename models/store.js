@@ -1,13 +1,16 @@
 const mongo = require('mongo');
 const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+const slug = require("slugs");
 
-const storeSchema = mongoose.Schema({
+const storeSchema = new mongoose.Schema({
   name:{
    type:String,
    trim:true,
    required:"Please enter a name"
   },
-  slug:String,
+  // Define the slug parameters------------------
+  slug: String ,
   description:{
    type:String,
    trim:true

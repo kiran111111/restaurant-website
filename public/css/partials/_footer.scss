@@ -1,0 +1,81 @@
+
+// Styles for the website's footer
+
+.footer__container{
+ width:100%;
+ padding:2rem 0rem;
+ .footer__wrapper{
+  display:flex;
+  background-color: $mainfont-color;
+  padding:3rem 1rem;
+  display: flex;
+  .footer__links{
+   flex:1;
+   padding:0rem 0.5rem;
+   ul{
+    display: flex;
+    li{
+     flex:1;
+     text-align: center;
+     list-style-type: none;
+     a{
+      color:white;
+      text-decoration: none;
+      font-family: $secondary-font;
+      font-size:0.9rem;
+      transition: 0.1s all ease;
+      &:hover{
+       color:rgb(236, 219, 212);
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+
+
+@media screen and (max-width:800px){
+ .footer__container{
+  padding:0rem 0rem;
+  .footer__wrapper{
+   display:flex;
+   flex-direction: column;
+   padding:2rem 1rem;
+   .footer__links{
+    flex:1;
+    padding:0.5rem ;
+    ul{
+     display: flex;
+     flex-direction: column;
+     
+     li{
+      flex:1;
+      padding:0.2rem 0;
+      text-align: center;
+      list-style-type: none;
+     }
+    }
+   }
+   .footer__follow--links{
+    flex:1;
+   margin:0 auto;
+    width:40vw;
+   
+    ul{
+     display: flex;
+     flex-direction: row;
+     li{
+      flex:1;
+      text-align: center;
+      list-style-type: none;
+      a{
+      font-size: 1.3rem;
+      }
+     }
+    }
+   }
+  }
+ }
+}
