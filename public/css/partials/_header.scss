@@ -5,7 +5,6 @@ body{
 }
 
 
-
 *{
  margin:0;
  padding:0;
@@ -59,7 +58,7 @@ box-sizing:border-box;
        padding:0.5rem 1rem;
        transition:s all ease;
        &:hover{
-        border-bottom:4px solid rgb(209, 186, 186);
+        border-bottom:2px solid rgb(188, 220, 241);
        }
        }
      }
@@ -69,11 +68,12 @@ box-sizing:border-box;
    .nav__title{
     flex:1 ;
     display:inline;
-    font-size:30px;
+    
     text-align: center;
     text-transform: uppercase;
     h3,h4{
     font-weight: bold;
+    font-size:40px;
     }
    }
 
@@ -92,7 +92,7 @@ box-sizing:border-box;
        padding:0.5rem 1.4rem;
        transition:s all ease;
        &:hover{
-        border-bottom:4px solid rgb(152, 196, 236);
+        border-bottom:2px solid rgb(191, 221, 250);
        }
        }
      }
@@ -107,9 +107,10 @@ box-sizing:border-box;
  .nav__search{
    form{
     position: relative;
+    margin:2rem 1rem;
     input{
      width:100%;
-     padding:0.7rem;
+     padding:1.2rem 0.7rem;
      border-radius: 3px;
      border:1px solid rgb(218, 218, 218);
      outline:none;
@@ -117,12 +118,15 @@ box-sizing:border-box;
     button{
      font-size:24px;
      position:absolute;
-     right:10px;
+     padding:0.2rem 1.2rem;
+     margin:0.4rem;
+     right:5px;
      top:4px;
-     background-color: transparent;
+     background-color: $mainfont-color;
      outline:none;
-     border:none;
-     color:$mainfont-color;
+     border-radius: 5px;
+     border:1px solid $mainfont-color;
+     color:white;
      &:hover{
       cursor:pointer;
      }
@@ -246,7 +250,12 @@ box-sizing:border-box;
    .nav__title{
     padding:0 1rem;
     flex:1;
-    font-size:20px;
+    h3{
+      font-size: 30px;
+    }
+    h4{
+      font-size:20px;
+    }
    }
 
    .follow__links{

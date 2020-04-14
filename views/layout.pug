@@ -6,19 +6,34 @@ head
   meta(name='author' content='Kiran')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title=h.sitename
-  link(rel="icon" type="image/png"  href="../images/food.png")
+  link(rel="icon" type="image/png"  href="../../images/food.png")
   link(href='https://fonts.googleapis.com/css?family=Poppins&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap' rel='stylesheet')
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet' type='text/css'  href='../../css/home.css')
+ 
+  
+
+.page__container
+  include includes/header.pug
+
+  block messages
+  if locals.flashes
+    .flash__inner
+      .flash__messages
+        - const categories = Object.keys(locals.flashes)
+        each category in categories
+          each message in flashes[category]
+            div(class="alert m-4 alert-"+category) #{message}
+              button.flash__remove( onclick="this.parentElement.remove()") x
+
+           
+
+  main
+  block content
   
 
 
-include includes/header.pug
-
-main
- block content
-
-include includes/footer.pug
-include includes/scripts.pug
+  include includes/footer.pug
+  include includes/scripts.pug

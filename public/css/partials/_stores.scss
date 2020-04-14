@@ -1,0 +1,198 @@
+
+
+*{
+ padding:0;
+ margin:0;
+}
+
+// I will have to use GRID system
+
+.stores__inner{
+ background-color:rgb(243, 245, 247);
+ border-top:1px solid rgb(235, 235, 235);
+ padding:3rem 0;
+
+ .stores{
+  padding:2rem 5rem;
+ }
+
+ .store__container--inner{
+  display: block;
+  margin:0 2rem;
+ .store__container{ 
+    display: flex;
+    padding:0rem 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-basis: calc(25% - (0.25rem * 2));
+  .store__wrapper{
+   flex:1 0 25%;
+   max-width:20vw;
+   box-shadow:0px 0px 2px lightgrey;
+   border-radius:5px;
+   margin:0.5rem;
+   display:flex;
+   flex-direction: column;
+   position: relative;
+   transition:0.1s all ease;
+   &:hover{
+    cursor:pointer;
+    box-shadow:0px 0px 30px rgb(163, 163, 163);
+   }
+   .store__image{
+    width:100%;
+    flex:2;
+     img{
+     width:100%;
+     height:200px;
+     border-radius:5px 5px 0px 0px;
+    }
+   }
+   .store__details{
+    height:100%;
+    background-color:white ;
+    padding:0.5rem;
+    border-radius:0px 0px 5px 5px;
+   .store__icons{
+     a{
+      svg{
+       padding:0 0.1rem;
+      }
+     }
+    }
+    .store__edit{
+     position :absolute;
+     top:210px;;
+     right:10px;
+     color:$mainfont-color;
+     text-decoration: none;
+     font-size: 0.9rem;
+     padding:0.1rem 0.3rem;
+     border-radius: 4px;
+     border:1px solid $mainfont-color;
+     &:hover{
+      box-shadow:0px 0px 10px rgb(94, 152, 240);
+     }
+    }
+    .store__title{
+       padding-top:0.8rem 2rem;
+       font-weight: bold;
+       font-size:18px;
+       font-family:$store-font;
+       text-overflow: ellipsis;
+    }
+    .store__description{
+       color:rgb(185, 185, 185);
+       margin:0;
+       font-weight:100;
+       font-size:0.9rem;
+       margin:-0.5rem 0;
+       font-family:$primary-font;
+    }
+    }
+  }
+ }
+}
+}
+
+
+
+
+
+
+@media screen and (max-width:800px){
+ .stores__inner{
+  .stores{
+   padding:1rem 3rem;
+  }
+  .store__container--inner{
+   display: block;
+   margin:0 1rem;
+  .store__container{
+     display: flex;
+     flex-wrap:wrap;
+     padding:0rem 1rem;
+     flex-wrap:wrap;
+   .store__wrapper{
+    flex:1 0 30%;
+    max-width:40vw;
+    border-radius:5px;
+    margin:1rem;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    .store__image{
+     width:100%;
+     flex:2;
+      img{
+      width:100%;
+      height:200px;
+      border-radius:5px 5px 0px 0px;
+     }
+    }
+    .store__details{
+     height:100%;
+     padding:0.5rem;
+     .store__icons{
+      a{
+       svg{
+        padding:0 0.1rem;
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+
+
+
+
+
+@media screen and (max-width:600px){
+ .stores__inner{
+  .stores{
+   padding:1rem 2rem;
+  }
+  .store__container--inner{
+   margin:0 1rem;
+  .store__container{
+     display: flex;
+     flex-wrap:wrap;
+    padding:0rem;
+   .store__wrapper{
+    flex:1 0 90%;
+    max-width:90vw;
+    border-radius:5px;
+    margin:1rem 0.5rem;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    .store__image{
+     width:100%;
+     flex:2;
+      img{
+      width:100%;
+      height:200px;
+      border-radius:5px 5px 0px 0px;
+     }
+    }
+    .store__details{
+     height:100%;
+     padding:0.5rem;
+     .store__icons{
+      a{
+       svg{
+        padding:0 0.1rem;
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

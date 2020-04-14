@@ -75,6 +75,11 @@ app.use(passport.session()
 // Helps us to send flash messages--
 app.use(flash());
 
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
 
 // Pass variables to our templates + all requests
 app.use(function (req, res, next){

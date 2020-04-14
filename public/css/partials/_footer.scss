@@ -1,9 +1,16 @@
 
 // Styles for the website's footer
 
+.page__container{
+  position:relative;
+  min-height: 100vh;
+
+
+
 .footer__container{
+ bottom:0;
  width:100%;
- padding:2rem 0rem;
+ 
  .footer__wrapper{
   display:flex;
   background-color: $mainfont-color;
@@ -14,6 +21,7 @@
    padding:0rem 0.5rem;
    ul{
     display: flex;
+    flex-direction: column;
     li{
      flex:1;
      text-align: center;
@@ -25,15 +33,28 @@
       font-size:0.9rem;
       transition: 0.1s all ease;
       &:hover{
-       color:rgb(236, 219, 212);
+       text-shadow:0px 0px 10px white;
       }
      }
     }
    }
   }
+  .footer__follow--links{
+    
+    ul{
+     width:150px;
+    margin:0 auto;
+     flex-direction: row;
+     li{
+       a{
+         font-size:1.2rem;
+       }
+     }
+    }
+  }
  }
 }
-
+}
 
 
 @media screen and (max-width:800px){
