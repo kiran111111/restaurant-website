@@ -8,11 +8,14 @@ var slug = require("mongoose-slug-generator");
 const storeSchema = new mongoose.Schema({
   name:{
    type:String,
-   trim:true,
-   required:"Please enter a name"
+   trim:true
   },
   // Define the slug parameters------------------
   // TODO for SEO
+  
+photo:{
+  type:String
+ },
   description:{
    type:String,
    trim:true
@@ -25,14 +28,14 @@ const storeSchema = new mongoose.Schema({
   address:{
     type:String
   },
-  location:{
-    type:{
-      type:String,
-      default:'Point'
+  location: {
+    type: {
+      type: String,
+      default: 'Point'
     },
-    coordinates:[{
-      type:Number,
-      required:"You must supply coordinates"
+    coordinates: [{
+      type: Number,
+      required: 'You must supply coordinates!'
     }]
   }
 })

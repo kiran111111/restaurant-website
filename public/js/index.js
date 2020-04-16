@@ -40,3 +40,39 @@ HamburgerEl.addEventListener("click",()=>{
  mobileNavbarCloseEl.addEventListener("click",()=>{
   mobileNavbar.style.marginLeft = "-40vw";
  })
+
+
+ const latEl = document.querySelector("#lat");
+ const lngEl = document.querySelector("#lng");
+ const addressEl = document.querySelector("#address");
+
+
+
+function initMap(){
+   if(!addressEl){
+     return ;
+   }
+
+   var autocomplete = new google.maps.places.Autocomplete(addressEl);
+
+   autocomplete.addListener('place_changed',()=>{
+     const place = autocomplete.getPlace();
+     latEl.value = place.geometry.location.lat();
+     lngEl.value = place.geometry.location.lng();
+   })
+
+
+  //  if someone hits enter on address field then dont submit form
+  addressEl.addEventListener("keydown",(e)=>{
+    if(e.keycode == 13) e.preventDefault();
+  })
+
+}
+
+
+
+
+// label(for="photo") Photo
+// input(type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg") 
+//   if store.photo
+//     img(src=`/uploads/${store.photo}`)

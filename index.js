@@ -4,8 +4,9 @@ if(process.env.NODE_ENV !== 'production'){
 
 
 const express = require("express");
-const bodyParser = require("body-parser");
+const app = express();
 const path = require("path");
+const bodyParser = require("body-parser");
 const connectDB = require("./congif/db");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -15,13 +16,17 @@ const expressValidator = require("express-validator");
 const router = require("./routes/routes")
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const fileUpload = require("express-fileupload");
 
 const helpers = require("./helpers")
+
+// Uploading and Resizing ---------------------------------------
+
 
 const PORT = process.env.PORT;
 
 // Creating an instance of an express app
-const app = express();
+
 
 // Connect to the database with the function made--
 connectDB();
@@ -71,14 +76,20 @@ app.use(passport.initialize());
 app.use(passport.session()
 )
 
+// Middleware for uploading FIles
+// app.use(fileUpload())
+
+
 // @connect flash for flash Messages
 // Helps us to send flash messages--
 app.use(flash());
+
 
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
 });
+
 
 
 // Pass variables to our templates + all requests
@@ -89,6 +100,10 @@ app.use(function (req, res, next){
   res.locals.currentPath = req.path;
   next();
 });
+
+
+
+
 
 app.use('/',router);
 

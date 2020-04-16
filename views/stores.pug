@@ -8,7 +8,7 @@ block content
      each store in stores
       .store__wrapper
        .store__image
-         img(src='/uploads/stores.jpg' alt='storeImage')
+         img(src=`/uploads/${store.photo}` , alt='storeImage')
        .store__details
          .store__icons
           a(href="#")

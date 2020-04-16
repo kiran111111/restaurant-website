@@ -464,7 +464,7 @@ body {
   padding: 0rem 0;
 }
 
-.main__form--inner .main__form--wrapper form input, .main__form--inner .main__form--wrapper form textarea {
+.main__form--inner .main__form--wrapper form input, .main__form--inner .main__form--wrapper form textarea, .main__form--inner .main__form--wrapper form input[type=file] {
   margin-bottom: 1rem;
   padding: 0.3rem;
   border-radius: 4px;

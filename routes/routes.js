@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 const storeController = require("../controllers/storeController");
@@ -12,11 +11,19 @@ router.get("/",storeController.getStores);
 router.get("/stores",storeController.getStores);
 router.get("/add/edit/:id",storeController.editStores)
 
-router.post("/add",storeController.createStore);
+router.post("/add",
+  storeController.uploads,    
+  storeController.resize,
+  storeController.createStore
+);
 
-
-
-router.post("/add/:id",storeController.updateStores)
+router.post("/add/:id",
+  storeController.uploads,
+  storeController.resize,
+  storeController.updateStores
+);
 
 
 module.exports  = router;
+
+
