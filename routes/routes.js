@@ -10,6 +10,9 @@ router.get("/add",storeController.addStore);
 router.get("/",storeController.getStores);
 router.get("/stores",storeController.getStores);
 router.get("/add/edit/:id",storeController.editStores)
+router.get("/store",(req,res)=>{
+  res.render("store")
+})
 
 router.post("/add",
   storeController.uploads,    

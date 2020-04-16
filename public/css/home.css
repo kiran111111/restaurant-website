@@ -811,4 +811,301 @@ body {
     padding: 0 0.1rem;
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.restaurant__container .restaurant__wrapper {
+  margin-top: -20px;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__image .restaurant__image--background {
+  position: relative;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__image .restaurant__image--background img {
+  width: 100%;
+  height: 600px;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__image .restaurant__image--background .restaurant__likes {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__image .restaurant__image--background .restaurant__likes span a {
+  background-color: white;
+  border-radius: 4px;
+  padding: 0.5rem;
+  opacity: 0.8;
+  text-decoration: none;
+  color: black;
+  -webkit-transition: 0.1s all ease;
+  transition: 0.1s all ease;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__image .restaurant__image--background .restaurant__likes span a:hover {
+  opacity: 1;
+  -webkit-box-shadow: 0px 0px 5px white;
+          box-shadow: 0px 0px 5px white;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  margin: 0.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.5px solid #e4e4e4;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  margin: 0.5rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains p {
+  font-style: italic;
+  color: grey;
+  margin: 0.5rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains .restaurant__details--mainsLinks ul {
+  margin-top: 1rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains .restaurant__details--mainsLinks ul li {
+  display: inline;
+  margin: 0.5rem;
+  list-style-type: none;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--mains .restaurant__details--mainsLinks ul li a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background-color: #e3e3f1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  color: black;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--links {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--links ul {
+  padding: 1rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--links ul li {
+  list-style-type: none;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--links ul li a {
+  display: inline-block;
+  background-color: #4c68ff;
+  color: white;
+  width: 150px;
+  padding: 0.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__details .restaurant__details--links ul li a:hover {
+  -webkit-box-shadow: 0px 0px 5px #4c68ff;
+          box-shadow: 0px 0px 5px #4c68ff;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--mainContacts {
+  padding: 0.5rem 0;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--mainContacts ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--mainContacts ul li {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: inline;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--mainContacts ul li i {
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--mainContacts ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--bio {
+  margin: 1rem 2rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--bio h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  display: inline;
+  border-bottom: 4px solid #4c68ff;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--bio p {
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 1rem 0;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons {
+  padding: 2rem 2rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons h3 {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1.7rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons .restaurant__data--addonswrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons .restaurant__data--addonswrapper .addons {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  margin-bottom: 1.5rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons .restaurant__data--addonswrapper .addons span {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--mains .restaurant__data--addons .restaurant__data--addonswrapper .addons p {
+  margin: 0;
+  padding: 0 0rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--map {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__data .restaurant__data--map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleHeader {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: inline-block;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleHeader h3 {
+  color: #4c68ff;
+  font-weight: 400;
+  margin: 1rem;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleLinks {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  text-align: center;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleLinks ul {
+  margin: 1rem 0;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleLinks ul li {
+  margin: 0.5rem;
+  display: inline;
+  list-style-type: none;
+  text-align: center;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleLinks ul li a {
+  display: inline-block;
+  background-color: #4c68ff;
+  color: white;
+  width: 150px;
+  padding: 0.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--titles .restaurant__footer--titleLinks ul li a:hover {
+  -webkit-box-shadow: 0px 0px 5px #4c68ff;
+          box-shadow: 0px 0px 5px #4c68ff;
+}
+
+.restaurant__container .restaurant__wrapper .restaurant__footer .restaurant__footer--links {
+  border: 1px solid black;
+}
 /*# sourceMappingURL=home.css.map */
