@@ -12,32 +12,45 @@ header
               a(href='/stores')
                 span Stores
             li.header__links--group
-              a(href='#')
+              a(href='/tags')
                 span Tags
-            li.header__links--group
-              a(href='/home')
-                span Top
-            li.header__links--group
-              a(href='/add')
-                span Add
+            if user
+              li.header__links--group
+                a(href='/add')
+                  span Add
+              li.header__links--group
+                a(href='/top')
+                  span Top    
         .nav__title
           h3=h.title
-          h4 Food Service
         .follow__links
           ul
             li.follow__links--group.marker
               a(href='#')
                 i.fa.fa-map-marker
-            li.follow__links--group.register__link
-              a(href='#')
-                span Register
-            li.follow__links--group.login__link
-              a(href='#')
-                span Login
+            if !user    
+              li.follow__links--group.register__link
+                a(href='/register')
+                  span Register
+              li.follow__links--group.login__link
+                a(href='/login')
+                  span Login
+            if user    
+              li.follow__links--group.login__link
+                a(href='/profile')
+                  span Profile
+              li.follow__links--group.login__link
+                a(href='/logout')
+                  span Logout
+              //- li.follow__links--group.login__link
+              //-   a(href='/login')
+              //-     span
+              //-       img(src='https://api.adorable.io/avatars/40/abott@adorable.png'  width="50px" height="50px")
       .nav__search
-        form
-          input(type='text' for='search' name='name' placeholder="Enter the Store's Name....")
-          button(type='submit')
+        form.search
+          input.search_input(type='text' for='search' name='search' list="huge_list"  placeholder="Enter the Store's Name....")
+          .search__results
+          button(type='submit') 
             i.fa.fa-search
       .mobile__navbar
         .mobile__navbar--close
@@ -45,24 +58,35 @@ header
             i.fa.fa-times
         .header__links--mobile
           ul
-            li.header__links--group
-              a(href='/add')
-                span Add
-            li.header__links--group
-              a(href='/stores')
-                span Stores
-            li.header__links--group
-              a(href='#')
-                span Tags
-            li.header__links--group
-              a(href='/home')
-                span Top
-            li.header__links--group
-              a(href='#')
-                span Register
-            li.header__links--group
-              a(href='#')
-                span Login
+            if !user
+              li.header__links--group
+                a(href='/stores')
+                  span Stores
+              li.header__links--group
+                a(href='tags')
+                  span Tags  
+              li.header__links--group
+                a(href='/register')
+                  span Register
+              li.header__links--group
+                a(href='/login')
+                  span Login    
+            if user      
+              li.header__links--group
+                a(href='/add')
+                  span Add
+              li.header__links--group
+                a(href='/top')
+                  span Top      
+              li.header__links--group
+                a(href='/stores')
+                  span Stores
+              li.header__links--group
+                a(href='/profile')
+                  span Profile
+              li.header__links--group
+                a(href='/logout')
+                  span Logout    
         .follow__links--mobile
           ul
             li.follow__links--group

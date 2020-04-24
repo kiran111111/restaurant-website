@@ -8,17 +8,20 @@ var slug = require("mongoose-slug-generator");
 const storeSchema = new mongoose.Schema({
   name:{
    type:String,
-   trim:true
+   trim:true,
+   lowercase:true
   },
   // Define the slug parameters------------------
   // TODO for SEO
   
 photo:{
-  type:String
+  type:String,
+  required:true
  },
   description:{
    type:String,
-   trim:true
+   trim:true,
+   lowercase:true
   },
   tags:[String],
   created:{
@@ -37,8 +40,12 @@ photo:{
       type: Number,
       required: 'You must supply coordinates!'
     }]
-  }
+  },
+  heartCount:[
+    {type : mongoose.Schema.ObjectId , ref:'User',default:0}
+  ]
 })
+
 
 
 // label(for="lng") Address Lng
@@ -46,6 +53,20 @@ photo:{
 //   label(for="lat") Address lat
 //   input(type="number" id="lng" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1] ) required)
 
+storeSchema.index({
+  name:"text",
+  description:"text"
+})
+
+
+
+storeSchema.statics.getTagsList = function(){
+  return this.aggregate([
+    {$unwind : '$tags'},
+    {$group: {_id : '$tags', count : { $sum : 1} }},
+    {$sort : {count : -1} }
+  ])
+}
 
 
 module.exports = mongoose.model('Store',storeSchema);

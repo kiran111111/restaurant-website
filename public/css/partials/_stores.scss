@@ -7,11 +7,13 @@
 
 // I will have to use GRID system
 
+
 .stores__inner{
+ min-height: 85vh;  
  background-color:rgb(243, 245, 247);
  border-top:1px solid rgb(235, 235, 235);
  padding:3rem 0;
-
+margin-bottom:1rem;
  .stores{
   padding:2rem 5rem;
  }

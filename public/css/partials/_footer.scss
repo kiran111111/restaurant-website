@@ -8,14 +8,17 @@
 
 
 .footer__container{
- bottom:0;
- width:100%;
- 
+
+  position:absolute;
+  top:105%;
+  width:100%;
+
  .footer__wrapper{
   display:flex;
   background-color: $mainfont-color;
-  padding:3rem 1rem;
+  padding:4rem 1rem;
   display: flex;
+  margin-top:-2rem;
   .footer__links{
    flex:1;
    padding:0rem 0.5rem;
@@ -59,6 +62,8 @@
 
 @media screen and (max-width:800px){
  .footer__container{
+  position:absolute;
+   top:60%;
   padding:0rem 0rem;
   .footer__wrapper{
    display:flex;

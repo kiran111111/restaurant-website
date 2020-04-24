@@ -1,4 +1,6 @@
 
+// ?Add and Edit form
+
 .main__form--inner{
  .main__form--wrapper{
   padding:4rem 0;
@@ -14,7 +16,7 @@
     border-radius: 4px;
     width: 50%;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 1rem 2rem;
     label{
      padding:0rem 0;
     }
@@ -27,6 +29,13 @@
     }
     textarea{
     height:100px;
+    }
+
+    .storePhoto{
+      display:block;
+      width:200px;
+      border-radius:5px;
+      border:1px solid rgb(179, 179, 179);
     }
 
     .tags{
@@ -125,3 +134,56 @@
   }
 }
 }
+
+
+// ? ***  Styles for the AJAX search interface ***
+
+.page__container{
+  position: relative;
+  .search{
+    position: relative;
+  .search__results{
+    z-index: 999;
+    background-color: white;
+    .search__result{
+      display:block;
+      font-weight:lighter;
+      padding-top:0.5rem;
+      padding-left:0.5rem;
+      color:black;
+      border:0.5px solid rgb(218, 218, 218);
+      &:hover{
+        text-decoration: none;
+        background-color: rgb(218, 218, 218);
+      }
+    }
+  }
+}
+}
+
+
+
+// .search {
+//   position: relative;
+//   width: 100%;
+//   display: flex;
+//   &__results {
+//     background: white;
+//     position: absolute;
+//     width: 100%;
+//     height: 100px;;
+//     top: 100%;
+//     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+//     z-index: 65;
+//     left: 0;
+//     &__result {
+//       padding: 10px;
+//       display: block;
+//       border-bottom: 1px solid #ececec;
+//       &--active {
+//         background: #f1f1f1;
+//       }
+//     }
+//   }
+  
+// }

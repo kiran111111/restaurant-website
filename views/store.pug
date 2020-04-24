@@ -1,26 +1,31 @@
 extends layout
 
+include mixins/_map
+
+
 block content
  .restaurant__container
    .restaurant__wrapper
      .restaurant__image
        .restaurant__image--background
-         img(src='../images/restaurant-dark-bar-architecture-34650 (1).jpg')
+         img(src='../uploads/'+store.photo)
          .restaurant__likes
-           span
-             a(href='') 💗Add to Favourites
+           if user
+            form.heart(method= "POST" action=`/api/heart/${store._id}`)
+              - const  heartString = user.hearts.map(obj => obj.toString())
+              - const heartClass = heartString.includes(store._id.toString()) ? 'hearted' : ""
+              - const count = store.heartCount
+              button#heart__count(type="submit" class=heartClass) 💗
+                span #{heartString.length}
      .restaurant__details
        .restaurant__details--mains
-         h1 Burger Streets USA
+         h1=store.name
          p Restaurant
          .restaurant__details--mainsLinks
            ul
+            each tag in store.tags
              li
-               a(href='#') Desserts
-             li
-               a(href='#') Sald
-             li
-               a(href='#') Mexican
+               a(href='#')=tag
        .restaurant__details--links
          ul
            li
@@ -37,16 +42,13 @@ block content
               i.fa.fa-phone
               a(href='#') +1(437)-227-2796 
              li
-               a(href='#') Burger Street 
+               a(href='#')=store.name
              li
                a(href='#')
                  i.fa.fa-instagram
          .restaurant__data--bio
            h3 Bio
-           p
-             | Make sure that you always handle the files that a user uploads. Never add multer as a global
-             | middleware since a malicious user could upload files to a route that you didn&rsquo;t anticipate.
-             | Only use this function on routes where you are handling the uploaded files.
+           p=store.description
          .restaurant__data--addons
            h3 Additional Info
            .restaurant__data--addonswrapper
@@ -68,7 +70,7 @@ block content
               span Diet
               p vegetarian     
        .restaurant__data--map
-         iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46196.69796042611!2d-79.78103699433862!3d43.64205905495282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b6ab13f989975%3A0xd82fdaf4a9142d9e!2sChurchville%2C%20Brampton%2C%20ON!5e0!3m2!1sen!2sca!4v1587066725164!5m2!1sen!2sca"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0")
+        +map(store)
      .restaurant__footer
        .restaurant__footer--titles
          .restaurant__footer--titleHeader
@@ -80,6 +82,40 @@ block content
              li
                a(href='#') Become a detective
        .restaurant__footer--links
-         ul.restaurant__footer--unorderedlist
-           li
-             a(href='#') yo
+         .restaurant__footer--lists
+           h5 About
+           ul
+            li Maniefesto
+            li About us
+            li Carreers
+            li Terms and conditions
+            li Privacy Policy
+         .restaurant__footer--lists
+           h5 For
+           ul
+            li Maniefesto
+            li About us
+            li Carreers
+            li Terms and conditions
+            li Privacy Policy
+         .restaurant__footer--lists
+           h5 Top cities
+           ul
+            li Maniefesto
+            li About us
+            li Carreers
+            li Terms and conditions
+            li Privacy Policy
+         .restaurant__footer--lists
+           h5 #FOODETECTION
+           ul
+            li Maniefesto
+            li About us
+            li Carreers
+            li Terms and conditions
+            li Privacy Policy        
+
+
+
+ 
+ script(async='' defer='' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBaJGvXqevN2r2K1yGlITYNHRKuX0WlGis&callback=initMap')

@@ -1,0 +1,13 @@
+mixin map(store={})
+ style.
+     #map {
+       width: 100%;
+       height: 500px;
+     }
+ - var l2 = store.location.coordinates[0]
+ - var l1 = store.location.coordinates[1]
+ p#latitude=l1
+ p#longitude=l2
+ #map
+ 
+

@@ -1,0 +1,55 @@
+extends layout
+
+block content
+ .tags__container
+  .tags__titles
+   h2 Tags
+   h5  #{tag}
+  ul.tagsList
+   each t in tags
+    li.tags 
+     a(href="/tags/"+t._id  class=(t._id === tag ? 'tag__link--active' : ""))
+      span=t._id
+      span.tag__count=t.count
+ .stores__inner 
+  .store__container--inner
+   .store__container
+     each store in stores
+      .store__wrapper
+       .store__image
+        a(href="/store/"+store._id)
+         img(src=`/uploads/${store.photo}` , alt='storeImage' width="300px",height="300px")
+       .store__details
+         .store__icons
+          a(href="#")
+           svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='28' height='28' viewbox='0 0 172 172' style=' fill:#000000;')
+             g(fill='none' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal')
+               path(d='M0,172v-172h172v172z' fill='none')
+               g(fill='#4c68ff')
+                 path(d='M86,21.5c-4.05633,0 -8.23529,2.62652 -9.61621,5.75293c-0.97177,2.20009 -1.10001,4.02936 -1.11279,5.66895c-21.36921,2.57209 -37.43091,12.88769 -47.76611,28.76465c-11.20696,17.21615 -15.90439,40.50399 -16.50293,67.31348h-11.00195v10.75h172v-10.75h-11.00196c-0.59853,-26.80949 -5.29597,-50.09733 -16.50293,-67.31348c-10.33519,-15.87696 -26.39689,-26.19255 -47.76611,-28.76465c-0.01279,-1.63959 -0.14102,-3.46886 -1.11279,-5.66895c-1.38092,-3.12641 -5.55988,-5.75293 -9.61621,-5.75293zM86,43c24.00977,0 39.25671,8.82742 49.4878,24.54443c9.5182,14.6219 14.13739,35.9761 14.76024,61.45557h-128.49609c0.62286,-25.47946 5.24204,-46.83366 14.76025,-61.45557c10.23108,-15.71701 25.47802,-24.54443 49.48779,-24.54443zM86,53.75l-10.75,10.75h-10.75v10.75l-10.75,10.75l10.75,10.75v10.75h10.75l10.75,10.75l10.75,-10.75h10.75v-10.75l10.75,-10.75l-10.75,-10.75v-10.75h-10.75zM86,68.95117l17.04883,17.04883l-17.04883,17.04883l-17.04883,-17.04883z')
+           svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='28' height='28' viewbox='0 0 172 172' style=' fill:#000000;')
+             g(fill='none' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal')
+               path(d='M0,172v-172h172v172z' fill='none')
+               g(fill='#4c68ff')
+                 path(d='M86,10.75c-16.48786,0 -39.93488,5.59094 -52.36426,8.75537c-7.1207,1.81225 -12.13574,8.28784 -12.13574,15.62109v34.74854c0,26.60241 15.77982,49.14212 31.05322,65.0459c15.2734,15.90378 30.59131,25.51026 30.59131,25.51026l2.89746,1.80567l2.85547,-1.84766c0,0 15.29051,-9.82009 30.54932,-25.8252c15.25882,-16.00511 31.05322,-38.49725 31.05322,-64.68896v-34.74854c0,-7.33562 -5.01259,-13.79345 -12.11474,-15.62109h-0.02099c-12.42887,-3.16443 -35.8764,-8.75537 -52.36426,-8.75537zM86,21.5c13.90742,0 37.54817,5.3268 49.69776,8.41943c2.42234,0.62336 4.05224,2.71715 4.05224,5.20703v34.74854c0,21.77479 -13.76809,42.27407 -28.07178,57.27734c-12.86419,13.49336 -23.24469,20.13887 -25.69922,21.77295c-2.45134,-1.59555 -12.80644,-8.05585 -25.65723,-21.43702c-14.2891,-14.87885 -28.07178,-35.34619 -28.07178,-57.61328v-34.74854c0,-2.51375 1.60595,-4.58978 4.03125,-5.20703c12.14512,-3.09207 35.80561,-8.41943 49.71875,-8.41943zM125.1997,45.91846l-45.91845,45.91846l-24.41846,-24.41846l-7.60059,7.60059l32.01904,32.01904l53.51905,-53.51904z')
+           svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='26' height='26' viewbox='0 0 172 172' style=' fill:#000000;')
+             g(fill='none' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal')
+               path(d='M0,172v-172h172v172z' fill='none')
+               g(fill='#4c68ff')
+                 path(d='M3.44,17.2c-1.89469,0 -3.44,1.54531 -3.44,3.44v20.64h30.96v-24.08zM37.84,17.2v24.08h30.96v-24.08zM75.68,17.2v24.08h27.52v-24.08zM110.08,17.2v24.08h27.52v-24.08zM144.48,17.2v24.08h27.52v-20.64c0,-1.89469 -1.53187,-3.44 -3.44,-3.44zM0,48.16v24.08h30.96v-24.08zM37.84,48.16v24.08h30.96v-24.08zM75.68,48.16v24.08h27.52v-24.08zM110.08,48.16v24.08h27.52v-24.08zM144.48,48.16v24.08h27.52v-24.08zM0,79.12v24.08h30.96v-24.08zM37.84,79.12v24.08h30.96v-24.08zM75.68,79.12v24.08h27.52v-24.08zM110.08,79.12v24.08h27.52v-24.08zM144.48,79.12v24.08h27.52v-24.08zM0,110.08v24.08h30.96v-24.08zM37.84,110.08v24.08h30.96v-24.08zM75.68,110.08v24.08h27.52v-24.08zM110.08,110.08v24.08h27.52v-24.08zM144.48,110.08v24.08h24.08c1.90813,0 3.44,-1.53187 3.44,-3.44v-20.64zM0,141.04v17.2c0,1.90813 1.54531,3.44 3.44,3.44h27.52v-20.64zM37.84,141.04v20.64h30.96v-20.64zM75.68,141.04v20.64h24.08c1.90813,0 3.44,-1.53187 3.44,-3.44v-17.2z')
+         a.store__edit(href="/add/edit/"+store._id ) Edit
+         .store__title
+           p=store.name
+         .store__description
+           p=store.description.split(" ").slice(0,8).join(" ")
+
+
+    
+
+
+
+    
+
+
+
+

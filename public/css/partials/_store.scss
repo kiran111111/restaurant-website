@@ -12,6 +12,14 @@
       }
 }
 
+#latitude,#longitude{
+  display: inline;
+  font-size:0.5rem;
+  color:grey;
+  padding-top:-1rem;
+}
+
+
 *{
  margin:0;
  padding:0;
@@ -38,8 +46,8 @@ body{
         position:absolute;
         top:20px;
         right:10px;
-        span{
-          a{
+        form{
+          button{
            background-color: white;
           border-radius:4px;
           padding:0.5rem;
@@ -49,17 +57,27 @@ body{
            transition:0.1s all ease;
            &:hover{
             opacity:1;
+            cursor:pointer;
             box-shadow:0px 0px 5px white;
            }
            }
+           //  hearts clicked
+        .hearted{
+          opacity:1;
+          background-color: pink;
+          box-shadow:0px 0px 5px pink;
+        }
          }
       }
      }
    }
 
+  
+
 
    .restaurant__details{
      display:flex;
+     flex-wrap:wrap;
      padding:1rem;
      margin:0.5rem;
      padding-bottom:2rem;
@@ -80,7 +98,7 @@ body{
       ul{
        margin-top:1rem;
        li{
-        display:inline;
+        display:inline-block;
         margin:0.5rem;
         list-style-type: none;
         a{
@@ -116,9 +134,10 @@ body{
     display:flex;
     .restaurant__data--mains{
      flex:2;
-    //  border:1px solid black;
+    // 
      .restaurant__data--mainContacts{
-      // border:1px solid black;
+      border-bottom:0.5px solid rgb(233, 233, 233);
+      margin:0 0.3rem;
       padding:0.5rem 0;
       ul{
        display:flex;
@@ -140,8 +159,10 @@ body{
       }
      }
      .restaurant__data--bio{
-       margin:1rem 2rem;
-      // border:1px solid black;
+       margin:1rem 0.5rem;
+       padding:0 1.5rem;
+       border-bottom:0.5px solid rgb(233, 233, 233);
+      //
       h3{ 
        font-family:$store-font;
        font-weight: bold;
@@ -161,6 +182,7 @@ body{
          margin-bottom:1.7rem;
        }
        .restaurant__data--addonswrapper{
+        // border-bottom:0.5px solid rgb(233, 233, 233);
         display:flex;
         flex-wrap:wrap;
         justify-content: flex-start;
@@ -187,7 +209,7 @@ body{
     }
     .restaurant__data--map{
      flex:1;
-    //  border:1px solid black;
+    // 
      position:relative;
      iframe{
       width:100%;
@@ -198,8 +220,10 @@ body{
 
 
    .restaurant__footer{
-     border:1px solid black;
-     padding:1rem;
+    margin:4rem 0.5rem;
+    padding:0 0.5rem;
+    border-top:0.5px solid rgb(233, 233, 233);
+     font-family:$store-font;
      .restaurant__footer--titles{
        display: flex;
        .restaurant__footer--titleHeader{
@@ -230,14 +254,253 @@ body{
        }
      }
      .restaurant__footer--links{
-       border:1px solid black;
+      
+       display:flex;
+       .restaurant__footer--lists{
+         margin-top:2rem;
+         padding:1rem;
+         flex: 1 0 25%;
+        
+         h5{
+           font-weight: bold;
+           margin-bottom:1.3rem;
+         }
+         ul{
+           li{
+             list-style-type: none;
+           }
+         }
+       }
      }
    }
 
   }
 }
 
+@media screen and (max-width:605px){
+  .restaurant__container{
+    .restaurant__wrapper{
+      .restaurant__image{
+        .restaurant__image--background{
+         img{
+            width:100%;
+            height:300px;
+         }
+         .restaurant__likes{
+           position:absolute;
+           top:20px;
+           right:10px;
+           span{
+             a{
+              background-color: white;
+              border-radius:4px;
+              padding:0.5rem;
+              opacity:0.8;
+              text-decoration:none;
+              color:black;
+              transition:0.1s all ease;
+              &:hover{
+               opacity:1;
+               box-shadow:0px 0px 5px white;
+              }
+              }
+            }
+         }
+      }
+    }
+  }
+ }
+}
 
 
+@media screen and (max-width:605px){
+  .restaurant__container{
+    .restaurant__wrapper{
+      .restaurant__footer{
+        margin:4rem 0.5rem;
+        padding:0 0.5rem;
+        border-top:0.5px solid rgb(233, 233, 233);
+        font-family:$store-font;
+        .restaurant__footer--titles{
+          display: flex;
+          flex-wrap:wrap;
+          flex-direction: column;
+          .restaurant__footer--titleHeader{
+            flex:2;
+            display:inline-block;
+            h3{
+              margin:0rem;
+            }
+          }
+          .restaurant__footer--titleLinks{
+            flex:1;
+            text-align: left;
+            margin:0;
+            padding:0;
+            ul{
+              margin:1rem -0.5rem;
+              li{
+                a{
+                  margin-bottom:1rem;
+                }
+              }
+            }
+          }
+        }
+        .restaurant__footer--links{
+          display:flex;
+          flex-wrap:wrap;
+          .restaurant__footer--lists{
+            margin-top:2rem;
+            padding:0rem;
+            flex: 1 0 45%;
+            ul{
+              width:80%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
-// TODO --- make everything responsive
+
+@media screen and (max-width:605px){
+   .restaurant__container{
+     .restaurant__wrapper{
+      .restaurant__details{
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction:column;
+        padding:1rem 0rem;
+        margin:0.5rem;
+        padding-bottom:2rem;
+        border-bottom:0.5px solid rgb(228, 228, 228);
+       .restaurant__details--mains{
+        flex:4;
+        h1{
+         font-family: $store-font;
+         font-weight: bolder;
+         margin:0.5rem;
+        }
+        p{
+         font-style: italic;
+         color:grey;
+         margin:0.5rem;
+        }
+        .restaurant__details--mainsLinks{
+         ul{
+          margin-top:1rem;
+          display:block;
+          li{
+           display:inline-block;
+           margin:0.5rem;
+           list-style-type: none;
+           a{
+             text-transform: uppercase;
+             font-size:0.8rem;
+            background-color:$storetags-color;
+            padding:0.5rem;
+            border-radius: 5px;
+            font-weight:600;
+            color:black;
+           }
+          }
+         }
+        }
+       }
+       .restaurant__details--links{
+        flex:1;
+        
+        ul{
+         margin:1rem 0;
+         padding:0.5rem;
+         justify-content: left;
+         li{
+           display:inline-block;
+            list-style-type:none;
+            margin-right:0.5rem;
+            text-align:center ;
+           a{
+            @include blueButton;
+           }
+         }
+        }
+       }
+      }
+     }
+   }
+}
+
+@media screen and (max-width:605px){
+ .restaurant__container{
+   .restaurant__wrapper{
+
+  .restaurant__data{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    .restaurant__data--mains{
+     flex:2; 
+     .restaurant__data--mainContacts{
+      border-bottom:0.5px solid rgb(233, 233, 233);
+      margin:0 0.3rem;
+      padding:1rem 0;
+      ul{
+       display:block;
+       margin:0.5rem;
+       li{
+        text-align: right;
+        margin-right:1rem;
+        display:inline-block;
+        i{
+         padding:0 0.5rem;
+         font-size:1.2rem;
+         color:black;
+        }
+        a{
+         text-decoration:none;
+         color:black;
+         font-weight: 600;
+        }
+       }
+      }
+     }
+     .restaurant__data--bio{
+       margin:1rem 0.5rem;
+       padding:0 0.5rem;
+       border-bottom:0.5px solid rgb(233, 233, 233);
+     }
+     .restaurant__data--addons{
+       padding:2rem 1rem;
+       .restaurant__data--addonswrapper{
+        // border-bottom:0.5px solid rgb(233, 233, 233);
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: flex-start;
+        .addons{
+          flex:1 0 50%;
+          margin-bottom:1.5rem;
+          // i {
+          //   font-size:1.3rem;
+          // margin-right:0.3rem;
+          // }
+       }
+      }
+     }
+    }
+    .restaurant__data--map{
+     flex:1;
+     height:300px;
+     margin:1rem;
+     position:relative;
+     iframe{
+      width:100%;
+      height:100%;
+     }
+    }
+   }
+  } 
+ }
+}
+

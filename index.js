@@ -16,9 +16,10 @@ const expressValidator = require("express-validator");
 const router = require("./routes/routes")
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const fileUpload = require("express-fileupload");
 
 const helpers = require("./helpers")
+
+const Store = require("./models/store");
 
 // Uploading and Resizing ---------------------------------------
 
@@ -76,9 +77,6 @@ app.use(passport.initialize());
 app.use(passport.session()
 )
 
-// Middleware for uploading FIles
-// app.use(fileUpload())
-
 
 // @connect flash for flash Messages
 // Helps us to send flash messages--
@@ -91,7 +89,6 @@ app.use(function (req, res, next) {
 });
 
 
-
 // Pass variables to our templates + all requests
 app.use(function (req, res, next){
   res.locals.h = helpers;
@@ -101,14 +98,17 @@ app.use(function (req, res, next){
   next();
 });
 
-
-
+// tremp
 
 
 app.use('/',router);
+
 
 
 // Start listening
 app.listen(PORT,()=>{
   console.log(`The application is running at port : ${PORT}`);
 })
+
+// Setting up mails
+require("./helpers/mail")

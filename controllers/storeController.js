@@ -5,6 +5,9 @@ const multer = require("multer");
 const jimp = require("jimp");
 const uuid = require("uuid");
 
+const userSchema = require("../models/users")
+const User = mongoose.model("Users",userSchema);
+
 
 const multerOptions = {
   storage : multer.memoryStorage(),
@@ -18,8 +21,6 @@ const multerOptions = {
     }
   }
 }
-
-
 
 
 // Route to HomePage----------------
@@ -49,7 +50,7 @@ exports.resize = async (req,res,next) =>{
   req.body.photo = `${uuid.v4()}.${extension}`;
   // now we resize
   const photo = await jimp.read(req.file.buffer);
-  await photo.resize(300,jimp.AUTO);
+  await photo.resize(2000,jimp.AUTO);
   await photo.write(`./public/uploads/${req.body.photo}`);
   // once we have written in out file system
   next();
@@ -77,9 +78,20 @@ exports.getStores = async (req,res) =>{
 }
 
 
-
 // Route to create store
 exports.createStore = async (req,res)=>{
+
+  // await Store.find({name:req.body.name},(err,docs)=>{
+  //  if(docs){
+  //     req.flash("danger","A document with same name already exists");
+  //     res.render("editStore",{
+  //       name : req.body.name,
+  //       description : req.body.description,
+  //       address: req.body.address,
+  //       photo:req.body.photo,
+  //     })
+  //  }
+  // })
 
   let store = new Store(req.body);
  try{
@@ -150,3 +162,99 @@ exports.updateStores = async (req,res) =>{
 
 
 
+// Route to a selected store;;-----
+
+
+
+exports.viewStore = async (req,res) =>{
+  try{
+    await Store.findById({_id: req.params.id},(err,docs)=>{
+      if(err){
+        throw err;
+      }else{
+        // render the form 
+        res.render("store",{
+         store:docs
+       })
+      }
+    })
+   }
+   catch(err){
+     if(err){
+       throw err;
+     }
+   }
+}
+
+
+// route to get stores by tags
+
+exports.getStoresByTags = async (req,res) =>{
+   const tag =   req.params.tag;
+   const tagQuery = tag ||  { $exists : true};
+   const tagsPromise =  Store.getTagsList();
+   const storePromise =  Store.find({tags: tagQuery});
+  
+   const [tags,stores] = await Promise.all([tagsPromise,storePromise]);
+  
+   res.render("tags",{ tags, title: 'Tags' , tag,stores  })
+}
+
+
+// api search
+exports.searchStores = async (req,res) =>{
+  // res.json(req.query);
+  const stores = await Store.find({
+    // first find stores that match 
+    $text :{
+      $search : req.query.q
+    }
+  },{
+    score:{ $meta :'textScore'}
+  })
+   .sort({
+     score : {$meta : 'textScore'}
+   })
+  res.json(stores);
+}
+
+
+// exports.heartStore = async (req,res) =>{
+//    await Store.updateOne({_id:req.params.id},{ $inc : {heartCount : 0.5}},(err,docs)=>{
+//      if(err){
+//        throw err;
+//      }
+//      else{
+//        res.redirect("back");
+//      }
+//    })
+//   //  res.json(req.params.id)
+// }
+
+exports.heartStore = async(req,res) =>{
+  const hearts = req.user.hearts.map(obj => obj.toString())
+
+  // ! TODO : Display number of likes-----
+  // const stores = Store.heartCount.map(obj => obj.toString())
+  // await Store.findOne({_id : req.params.id},(err,docs)=>{
+  //   res.json(docs.heartCount.map(obj => obj.toString()))
+  // })
+  
+  const operator = hearts.includes(req.params.id) ? '$pull' : '$addToSet';
+  const user = await User.findByIdAndUpdate(req.user._id,
+     {[operator] : {hearts : req.params.id}},
+     {new : true}
+    )
+  res.redirect("back");
+}
+
+
+exports.getHeartedStores = async (req,res) =>{
+   
+  const stores = await Store.find({
+    _id:{$in : req.user.hearts}
+  })
+ res.render("top",{
+   stores:stores
+ })
+}
