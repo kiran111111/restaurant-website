@@ -24,7 +24,8 @@ const Store = require("./models/store");
 // Uploading and Resizing ---------------------------------------
 
 
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+const PORT = 3000;
 
 // Creating an instance of an express app
 
@@ -103,10 +104,10 @@ app.use(function (req, res, next){
 
 app.use('/',router);
 
-
+// '192.168.0.20'
 
 // Start listening
-app.listen(PORT,()=>{
+app.listen(3000,()=>{
   console.log(`The application is running at port : ${PORT}`);
 })
 

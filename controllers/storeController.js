@@ -9,6 +9,8 @@ const userSchema = require("../models/users")
 const User = mongoose.model("Users",userSchema);
 
 
+
+
 const multerOptions = {
   storage : multer.memoryStorage(),
 
@@ -81,33 +83,21 @@ exports.getStores = async (req,res) =>{
 // Route to create store
 exports.createStore = async (req,res)=>{
 
-  // await Store.find({name:req.body.name},(err,docs)=>{
-  //  if(docs){
-  //     req.flash("danger","A document with same name already exists");
-  //     res.render("editStore",{
-  //       name : req.body.name,
-  //       description : req.body.description,
-  //       address: req.body.address,
-  //       photo:req.body.photo,
-  //     })
-  //  }
-  // })
-
   let store = new Store(req.body);
- try{
-   await store.save(err=>{
+  try{
+    await store.save(err=>{
+      if(err){
+      console.log(err)
+      }else{
+        req.flash("success","Store has been created")
+        res.redirect("/stores")
+      }
+    });
+  }catch(err){
     if(err){
-     console.log(err)
-    }else{
-      req.flash("success","Store has been created")
-      res.redirect("/stores")
+      console.log(err)
     }
-   });
- }catch(err){
-   if(err){
-    console.log(err)
-   }
- }
+  }
 }
 
 
@@ -200,7 +190,7 @@ exports.getStoresByTags = async (req,res) =>{
    res.render("tags",{ tags, title: 'Tags' , tag,stores  })
 }
 
-
+//  API -1 *******************************
 // api search
 exports.searchStores = async (req,res) =>{
   // res.json(req.query);
@@ -258,3 +248,15 @@ exports.getHeartedStores = async (req,res) =>{
    stores:stores
  })
 }
+
+
+
+// Testing
+// !No restaurant should have same name-----
+exports.getunique = async (req,res) =>{
+  // Check if the name matches any of the stores already present
+  let uniq = await Store.aggregate([{ $match: { name:req.query.q } }]);
+  res.json(uniq)
+}
+
+

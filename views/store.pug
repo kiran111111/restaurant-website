@@ -1,6 +1,7 @@
 extends layout
 
 include mixins/_map
+include mixins/_reviewForm
 
 
 block content
@@ -16,7 +17,7 @@ block content
               - const heartClass = heartString.includes(store._id.toString()) ? 'hearted' : ""
               - const count = store.heartCount
               button#heart__count(type="submit" class=heartClass) 💗
-                span #{heartString.length}
+                span #{""}
      .restaurant__details
        .restaurant__details--mains
          h1=store.name

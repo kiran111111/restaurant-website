@@ -17,6 +17,16 @@ check('name').isLength({min:8}).trim().escape().not().isEmpty()
   ]
 }
 
+
+const storeValidationRules = () =>{
+  return [
+    check('uniqueName').isLength({min:8}).trim().escape().not().isEmpty()
+              .matches(/^([a-z]*)([-]{1}[a-z0-9]+)*$/)
+              .withMessage('All lowercase can be separated by hyphen only'),
+  ]
+}
+
+
 const validate = (req, res, next) => {
   const errors =validationResult(req);
   if (errors.isEmpty()) {
@@ -32,4 +42,5 @@ const validate = (req, res, next) => {
 module.exports = {
  userValidationRules,
  validate,
+ storeValidationRules
 }

@@ -1,0 +1,7 @@
+mixin reviewForm(store)
+ form.reviewForm(action=`/review/${store._id}` method='POST')
+  textarea(name="text" placeholder="Did you try this place Have something to say...? Leave a review..."  width="200px" height="100px" )
+  .review__meta
+    .review__stars
+    
+       

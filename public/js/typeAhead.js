@@ -21,11 +21,11 @@ function typeAhead(search){
   const searchInput = document.querySelector('input[name="search"]');
   const searchResults = document.querySelector('.search__results')
 
-  console.log(searchInput,searchResults);
 
   searchInput.addEventListener("input",function(){
    if(!this.value){
      searchResults.style.display = 'none';
+     return ;
    }
    searchResults.style.display = 'block';
 
@@ -34,7 +34,6 @@ function typeAhead(search){
    .get(`../api/search?q=${this.value}`)
    .then(res=>{
      if(res.data.length){
-       console.log('There is something to show')
        const html = searchResultsHTML(res.data);
        searchResults.innerHTML = html;
      }

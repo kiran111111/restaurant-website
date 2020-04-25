@@ -6,15 +6,12 @@ var slug = require("mongoose-slug-generator");
 
 
 const storeSchema = new mongoose.Schema({
-  name:{
-   type:String,
-   trim:true,
-   lowercase:true
+   name:{
+    type:String,
+    trim:true,
+    lowercase:true
   },
-  // Define the slug parameters------------------
-  // TODO for SEO
-  
-photo:{
+ photo:{
   type:String,
   required:true
  },
@@ -46,12 +43,6 @@ photo:{
   ]
 })
 
-
-
-// label(for="lng") Address Lng
-//   input(type="number" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0] ) required)
-//   label(for="lat") Address lat
-//   input(type="number" id="lng" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1] ) required)
 
 storeSchema.index({
   name:"text",

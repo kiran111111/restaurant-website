@@ -14,20 +14,20 @@ header
             li.header__links--group
               a(href='/tags')
                 span Tags
+            li.header__links--group
+                a(href='/top')
+                  span Favourites      
             if user
               li.header__links--group
                 a(href='/add')
                   span Add
-              li.header__links--group
-                a(href='/top')
-                  span Top    
         .nav__title
           h3=h.title
         .follow__links
           ul
-            li.follow__links--group.marker
-              a(href='#')
-                i.fa.fa-map-marker
+            //- li.follow__links--group.marker
+            //-   a(href='#')
+            //-     i.fa.fa-map-marker
             if !user    
               li.follow__links--group.register__link
                 a(href='/register')
@@ -66,6 +66,9 @@ header
                 a(href='tags')
                   span Tags  
               li.header__links--group
+                a(href='/top')
+                  span Favourites       
+              li.header__links--group
                 a(href='/register')
                   span Register
               li.header__links--group
@@ -74,10 +77,7 @@ header
             if user      
               li.header__links--group
                 a(href='/add')
-                  span Add
-              li.header__links--group
-                a(href='/top')
-                  span Top      
+                  span Add   
               li.header__links--group
                 a(href='/stores')
                   span Stores
