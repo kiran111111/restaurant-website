@@ -14,7 +14,6 @@ require("../helpers/passport");
 // require("../controllers/passport")
 
 router.get("/add",authController.checkAuthenticated,storeController.addStore);
-router.get("/",storeController.getStores);
 router.get("/stores",storeController.getStores);
 router.get("/add/edit/:id",authController.checkAuthenticated,storeController.editStores);
 router.get("/store/:id",storeController.viewStore);
