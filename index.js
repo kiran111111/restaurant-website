@@ -24,10 +24,6 @@ const PORT = process.env.PORT;
 // Connect to the database with the function made--
 connectDB();
 
-// Middleware for main route
-app.get("/",(req,res)=>{
- res.send("Lets Start")
-})
 
 // Serve up static files from the public folder. Anything -
 // in these files will be served as such

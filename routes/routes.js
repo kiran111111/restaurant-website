@@ -12,7 +12,7 @@ require("../helpers/passport");
 
 // Get the passport module-------------------------------------------
 // require("../controllers/passport")
-
+router.get("/",storeController.getStores);
 router.get("/add",authController.checkAuthenticated,storeController.addStore);
 router.get("/stores",storeController.getStores);
 router.get("/add/edit/:id",authController.checkAuthenticated,storeController.editStores);
