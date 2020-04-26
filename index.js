@@ -101,4 +101,3 @@ app.use(errorHandlers.productionErrors)
 app.listen(PORT,()=>{
   console.log(`The application is running at port : ${PORT}`);
 })
-
