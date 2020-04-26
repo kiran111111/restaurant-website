@@ -98,7 +98,7 @@ app.use(errorHandlers.productionErrors)
 // '192.168.0.20'
 
 // Start listening
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
   console.log(`The application is running at port : ${PORT}`);
 })
 
