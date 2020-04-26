@@ -26,10 +26,6 @@ const multerOptions = {
 }
 
 
-// Route to HomePage----------------
-exports.homepage = (req,res) =>{
-  res.redirect("stores");
-}
 
 
 // Route to EditStore-----------------------
