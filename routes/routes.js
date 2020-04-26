@@ -6,18 +6,17 @@ const storeController = require("../controllers/storeController");
 const authController = require("../controllers/authController");
 const userController = require("../controllers/userController")
 const Store = require("../models/store");
-const {validate,userValidationRules,storeValidationRules} = require("../helpers/validator")
+const {validate,userValidationRules} = require("../helpers/validator")
 require("../helpers/passport");
 
 
 // Get the passport module-------------------------------------------
 // require("../controllers/passport")
 
-router.get("/home",storeController.homepage);
 router.get("/add",authController.checkAuthenticated,storeController.addStore);
 router.get("/",storeController.getStores);
 router.get("/stores",storeController.getStores);
-router.get("/add/edit/:id",storeController.editStores);
+router.get("/add/edit/:id",authController.checkAuthenticated,storeController.editStores);
 router.get("/store/:id",storeController.viewStore);
 router.get("/tags",storeController.getStoresByTags)
 router.get("/top",authController.checkAuthenticated,storeController.getHeartedStores);
@@ -60,14 +59,13 @@ router.post('/api/heart/:id',storeController.heartStore)
 // API-3 *****
 router.get("/getlist",storeController.getunique)
 
-router.get("/spin",(req,res)=>{
-  res.render("spinner");
-})
-
 // ?Error Handler *****
 router.get("/*",(req,res,err) =>{
   if(err){
-    res.render("error")
+    res.render("error",{
+      status:404,
+      message:"page not found"
+    })
   }
 })
 

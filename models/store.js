@@ -8,8 +8,7 @@ var slug = require("mongoose-slug-generator");
 const storeSchema = new mongoose.Schema({
    name:{
     type:String,
-    trim:true,
-    lowercase:true
+    trim:true
   },
  photo:{
   type:String,
@@ -37,10 +36,7 @@ const storeSchema = new mongoose.Schema({
       type: Number,
       required: 'You must supply coordinates!'
     }]
-  },
-  heartCount:[
-    {type : mongoose.Schema.ObjectId , ref:'User',default:0}
-  ]
+  }
 })
 
 

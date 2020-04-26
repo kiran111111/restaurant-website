@@ -3,6 +3,9 @@ extends layout.pug
 include mixins/_storeForm
 
 block content
+ if errors
+   each error in errors
+    div.alert.alert-danger.m-4 #{error}
  section
   .main__form--inner
    .main__form--wrapper

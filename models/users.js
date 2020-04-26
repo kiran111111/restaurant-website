@@ -21,11 +21,6 @@ username:{
  ]
 })
 
-// userSchema.virtual('gravatar').get(function(){
-//   const hash = crypto.createHash('md5').update(this.email).digest('hex');
-//   console.log(hash)
-//   return `https://secure.gravatar.com/avatar/af29dd7256a323570c4495b77a39533e?s=60;
-// })
 
 
 module.exports = userSchema;

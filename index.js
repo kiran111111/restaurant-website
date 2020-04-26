@@ -15,20 +15,11 @@ const pug = require("pug");
 const expressValidator = require("express-validator");
 const router = require("./routes/routes")
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
-
 const helpers = require("./helpers")
+const errorHandlers  = require("./errorHandlers")
 
-const Store = require("./models/store");
-
-// Uploading and Resizing ---------------------------------------
-
-
-// const PORT = process.env.PORT;
-const PORT = 3000;
-
-// Creating an instance of an express app
-
+// setting up the port
+const PORT = process.env.PORT;
 
 // Connect to the database with the function made--
 connectDB();
@@ -99,11 +90,15 @@ app.use(function (req, res, next){
   next();
 });
 
-// tremp
 
-
+// Route to expres router
 app.use('/',router);
 
+// validaiton errors
+app.use(errorHandlers.flashValidationErrors)
+
+// production errors
+app.use(errorHandlers.productionErrors)
 // '192.168.0.20'
 
 // Start listening
@@ -111,5 +106,3 @@ app.listen(3000,()=>{
   console.log(`The application is running at port : ${PORT}`);
 })
 
-// Setting up mails
-require("./helpers/mail")

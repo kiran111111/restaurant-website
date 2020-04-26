@@ -78,10 +78,16 @@ block content
            h3 Foodetective
          .restaurant__footer--titleLinks
            ul
-             li
-               a(href='#') Register you Business
-             li
-               a(href='#') Become a detective
+            if user
+              li
+                a(href='/add') Register you Business
+              li
+                a(href='/add') Become a detective
+            if !user    
+              li
+                a(href='/register') Register you Business
+              li
+                a(href='/register') Become a detective    
        .restaurant__footer--links
          .restaurant__footer--lists
            h5 About

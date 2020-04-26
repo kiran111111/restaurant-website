@@ -19,7 +19,8 @@ const multerOptions = {
     if(isPhoto){
       next(null,true)
     }else{
-      next({message : 'That filetype is not allowed'},false);
+      const msg = "not";
+      next({message:'This filetype is not allowed'},false);
     }
   }
 }
@@ -52,7 +53,7 @@ exports.resize = async (req,res,next) =>{
   req.body.photo = `${uuid.v4()}.${extension}`;
   // now we resize
   const photo = await jimp.read(req.file.buffer);
-  await photo.resize(2000,jimp.AUTO);
+  await photo.resize(1000,jimp.AUTO);
   await photo.write(`./public/uploads/${req.body.photo}`);
   // once we have written in out file system
   next();
@@ -64,7 +65,7 @@ exports.getStores = async (req,res) =>{
   try{
     await Store.find({},(err,docs)=>{
       if(err){
-        throw err;
+        res.render("error")
       }else{
         res.render("stores",{
           title:"Stores",
@@ -74,7 +75,7 @@ exports.getStores = async (req,res) =>{
     });
   }
   catch(err){
-    throw err;
+    res.render("error")
   }
    
 }
@@ -87,7 +88,8 @@ exports.createStore = async (req,res)=>{
   try{
     await store.save(err=>{
       if(err){
-      console.log(err)
+        req.flash("danger","You need to upload a photo  ")
+        res.redirect("back")
       }else{
         req.flash("success","Store has been created")
         res.redirect("/stores")
@@ -110,7 +112,7 @@ exports.editStores = async (req,res) =>{
   try{
    await Store.findById({_id: req.params.id},(err,docs)=>{
      if(err){
-       throw err;
+       res.render("error")
      }else{
       //  render the form 
       res.render("editStore",{
@@ -122,7 +124,7 @@ exports.editStores = async (req,res) =>{
   }
   catch(err){
     if(err){
-      throw err;
+      res.render("error")
     }
   }
 }
@@ -136,7 +138,7 @@ exports.updateStores = async (req,res) =>{
   try{
     await Store.updateOne({_id: req.params.id},req.body,(err,docs)=>{
       if(err){
-        throw err;
+        res.render("error")
       }else{
         // redirect to the store page  and show flash message
         req.flash("success","The store has been updated")
@@ -145,7 +147,7 @@ exports.updateStores = async (req,res) =>{
     })
   }catch(err){
    if(err){
-     throw err;
+     res.render("error")
    }
   }
 }
@@ -160,7 +162,7 @@ exports.viewStore = async (req,res) =>{
   try{
     await Store.findById({_id: req.params.id},(err,docs)=>{
       if(err){
-        throw err;
+        res.render("error")
       }else{
         // render the form 
         res.render("store",{
@@ -171,7 +173,7 @@ exports.viewStore = async (req,res) =>{
    }
    catch(err){
      if(err){
-       throw err;
+       res.render("error")
      }
    }
 }
@@ -184,11 +186,12 @@ exports.getStoresByTags = async (req,res) =>{
    const tagQuery = tag ||  { $exists : true};
    const tagsPromise =  Store.getTagsList();
    const storePromise =  Store.find({tags: tagQuery});
-  
    const [tags,stores] = await Promise.all([tagsPromise,storePromise]);
-  
    res.render("tags",{ tags, title: 'Tags' , tag,stores  })
 }
+
+
+// AJAX APIS ----****************************************
 
 //  API -1 *******************************
 // api search
@@ -209,18 +212,7 @@ exports.searchStores = async (req,res) =>{
 }
 
 
-// exports.heartStore = async (req,res) =>{
-//    await Store.updateOne({_id:req.params.id},{ $inc : {heartCount : 0.5}},(err,docs)=>{
-//      if(err){
-//        throw err;
-//      }
-//      else{
-//        res.redirect("back");
-//      }
-//    })
-//   //  res.json(req.params.id)
-// }
-
+// Hearting the stores
 exports.heartStore = async(req,res) =>{
   const hearts = req.user.hearts.map(obj => obj.toString())
 
@@ -239,8 +231,8 @@ exports.heartStore = async(req,res) =>{
 }
 
 
+// Getting the hearted Stores
 exports.getHeartedStores = async (req,res) =>{
-   
   const stores = await Store.find({
     _id:{$in : req.user.hearts}
   })
@@ -251,7 +243,7 @@ exports.getHeartedStores = async (req,res) =>{
 
 
 
-// Testing
+// Giving each store a unique name------
 // !No restaurant should have same name-----
 exports.getunique = async (req,res) =>{
   // Check if the name matches any of the stores already present

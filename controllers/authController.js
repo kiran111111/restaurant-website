@@ -3,8 +3,6 @@ const Store = require("../models/store");
 const path  = require("path");
 const bcrypt = require("bcrypt");
 const userSchema = require("../models/users")
-// Modules for express validaiton
-// const {userValidationRules,validate} = require("./validator")
 
 // Module for the database model
 const User = mongoose.model("Users",userSchema);
@@ -21,7 +19,7 @@ exports.login = (req,res) =>{
 exports.registered = async (req,res) =>{
  await User.findOne({username:req.body.username},async (err,docs)=>{
   if(err){
-   console.log(err)
+   res.render("error")
   }
    else if(docs){
     req.flash("danger","Username already exists");
@@ -31,7 +29,7 @@ exports.registered = async (req,res) =>{
      const hashedPassword = await bcrypt.hash(req.body.password,10);
       let user = new User({
        name:req.body.name,
-      username:req.body.username,
+       username:req.body.username,
        password:hashedPassword
       }) 
 

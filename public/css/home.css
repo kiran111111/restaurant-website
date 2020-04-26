@@ -557,8 +557,20 @@ body {
   border: 1px solid #e0e0e0;
 }
 
+.main__form--inner .main__form--wrapper form #id {
+  margin-bottom: 0rem;
+}
+
 .main__form--inner .main__form--wrapper form textarea {
   height: 100px;
+}
+
+.main__form--inner .main__form--wrapper form .namesearch__results p {
+  margin-bottom: 0;
+}
+
+.main__form--inner .main__form--wrapper form .namesearch__valid {
+  margin-bottom: 1rem;
 }
 
 .main__form--inner .main__form--wrapper form .storePhoto {
@@ -731,23 +743,17 @@ body {
 }
 
 .stores__inner .store__container--inner .store__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   padding: 0rem 1rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-preferred-size: calc(25% - (0.25rem * 2));
-      flex-basis: calc(25% - (0.25rem * 2));
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
 }
 
 .stores__inner .store__container--inner .store__container .store__wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 25%;
-          flex: 1 0 25%;
   max-width: 20vw;
   -webkit-box-shadow: 0px 0px 2px lightgrey;
           box-shadow: 0px 0px 2px lightgrey;

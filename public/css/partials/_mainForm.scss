@@ -7,9 +7,8 @@
    .form__title{
      display: block;
      text-align: center;
-    padding:0rem 2rem;
+     padding:0rem 2rem;
      text-transform: uppercase;
-   
    }
    form{
     border:1px solid rgb(218, 218, 218);
@@ -27,8 +26,20 @@
      outline:none;
      border:1px solid rgb(224, 224, 224);
     }
+    #id{
+      margin-bottom:0rem;
+    }
     textarea{
     height:100px;
+    }
+
+    // The validation description styles------
+    .namesearch__results p {
+      margin-bottom:0;
+    }
+
+    .namesearch__valid{
+      margin-bottom:1rem;
     }
 
     .storePhoto{

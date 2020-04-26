@@ -13,34 +13,27 @@ check('name').isLength({min:8}).trim().escape().not().isEmpty()
  check('username','Username should be an email').isEmail().normalizeEmail().isLength({ min: 10 }),
     // password must be at least 5 chars long
     // TODO--- we can add regex to password too  -- I have a good one----
- check('password').trim().isLength({ min: 5 }).withMessage("Password should have atleast 5 letters"),
-  ]
-}
-
-
-const storeValidationRules = () =>{
-  return [
-    check('uniqueName').isLength({min:8}).trim().escape().not().isEmpty()
-              .matches(/^([a-z]*)([-]{1}[a-z0-9]+)*$/)
-              .withMessage('All lowercase can be separated by hyphen only'),
+ check('password').trim().isLength({ min: 8 }).withMessage("Password should have atleast 5 letters"),
   ]
 }
 
 
 const validate = (req, res, next) => {
-  const errors =validationResult(req);
+  const errors = validationResult(req)
   if (errors.isEmpty()) {
     return next()
   }
-  var extractedErrors = [];
+  const extractedErrors = []
   errors.array().map(err => extractedErrors.push((err.msg)))
+ 
 
- res.locals.errors = extractedErrors.slice(1);
- res.render('register')
+ res.locals.errors = extractedErrors;
+ res.render("register")
+
 }
+
 
 module.exports = {
  userValidationRules,
- validate,
- storeValidationRules
+ validate
 }
