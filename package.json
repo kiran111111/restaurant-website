@@ -4,7 +4,7 @@
   "description": "It is a restaurant website made with node,express and mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "dev" : "webpack --mode development"
   },
   "keywords": [
