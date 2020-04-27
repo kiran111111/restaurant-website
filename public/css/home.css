@@ -394,7 +394,9 @@ body {
 
 .page__container .footer__container {
   position: absolute;
-  top: 105%;
+  bottom: 0;
+  height: 2.5rem;
+  margin-top: 5rem;
   width: 100%;
 }
 
@@ -1653,12 +1655,16 @@ body {
   }
 }
 
+.auth__wrapper {
+  padding-bottom: 5rem;
+}
+
 .auth__wrapper .authForm {
   width: 50vw;
-  margin: 3rem auto;
+  margin: 2rem auto;
   padding: 3rem;
-  -webkit-box-shadow: 0px 0px 5px grey;
-          box-shadow: 0px 0px 5px grey;
+  -webkit-box-shadow: 0px 0px 5px lightgray;
+          box-shadow: 0px 0px 5px lightgray;
 }
 
 .auth__wrapper .authForm label {
@@ -1740,8 +1746,8 @@ body {
   background-image: url(https://media.giphy.com/media/fVbGtoawNMG92bjN5E/giphy.gif);
   background-size: cover;
   color: transparent;
-  -moz-background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   font-size: 4rem;
   font-weight: bold;
   margin: 10px 0;
@@ -1767,8 +1773,8 @@ body {
     background-image: url(https://media.giphy.com/media/fVbGtoawNMG92bjN5E/giphy.gif);
     background-size: cover;
     color: transparent;
-    -moz-background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     text-transform: uppercase;
     font-size: 4rem;
     line-height: .75;
