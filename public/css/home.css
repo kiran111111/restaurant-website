@@ -394,9 +394,9 @@ body {
 
 .page__container .footer__container {
   position: relative;
-  top: 2rem;
+  bottom: 0;
   height: 2.5rem;
-  margin-top: 5rem;
+  margin-top: 10rem;
   width: 100%;
 }
 
@@ -1653,10 +1653,6 @@ body {
     margin: 0;
     font-size: 0.8rem;
   }
-}
-
-.auth__wrapper {
-  padding-bottom: 5rem;
 }
 
 .auth__wrapper .authForm {
