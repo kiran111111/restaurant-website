@@ -83,6 +83,7 @@ app.use(function (req, res, next){
   res.locals.flashes = req.flash();
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
+  res.locals.API_KEY = process.env.MAP_APIKEY;
   next();
 });
 
