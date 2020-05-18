@@ -19,7 +19,7 @@ const helpers = require("./helpers")
 const errorHandlers  = require("./errorHandlers")
 
 // setting up the port
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 // Connect to the database with the function made--
 connectDB();

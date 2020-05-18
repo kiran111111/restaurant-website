@@ -4,6 +4,12 @@ body{
  padding:0;
 }
 
+.page__container{
+  max-width:1280px;
+  margin:0 auto;
+  box-shadow: 0px 0px 2px rgb(214, 214, 214);
+}
+
 
 // Sppinner styles
 .spinner-wrapper {
@@ -206,6 +212,7 @@ box-sizing:border-box;
   // Styling of Mobile-Navbar------
   .mobile__navbar{
    position:absolute;
+   display: none;
    z-index:999;
    padding:2rem 0;
    top:0;
@@ -336,6 +343,10 @@ box-sizing:border-box;
       display: none;
      }
    }
+  }
+
+  .mobile__navbar{
+    display: block;
   }
   }
  }

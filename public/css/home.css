@@ -3,6 +3,13 @@ body {
   padding: 0;
 }
 
+.page__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 2px #d6d6d6;
+          box-shadow: 0px 0px 2px #d6d6d6;
+}
+
 .spinner-wrapper {
   display: none;
   opacity: 0;
@@ -245,6 +252,7 @@ body {
 
 .nav__container .nav__wrapper .mobile__navbar {
   position: absolute;
+  display: none;
   z-index: 999;
   padding: 2rem 0;
   top: 0;
@@ -384,6 +392,9 @@ body {
   }
   .nav__container .nav__wrapper .nav__group .follow__links .register__link, .nav__container .nav__wrapper .nav__group .follow__links .login__link {
     display: none;
+  }
+  .nav__container .nav__wrapper .mobile__navbar {
+    display: block;
   }
 }
 
@@ -727,7 +738,7 @@ body {
   margin: 0;
 }
 
-.stores__inner {
+.page__container .stores__inner {
   min-height: 100vh;
   background-color: #f3f5f7;
   border-top: 1px solid #ebebeb;
@@ -735,16 +746,16 @@ body {
   margin-bottom: 1rem;
 }
 
-.stores__inner .stores {
+.page__container .stores__inner .stores {
   padding: 2rem 5rem;
 }
 
-.stores__inner .store__container--inner {
+.page__container .stores__inner .store__container--inner {
   display: block;
   margin: 0 2rem;
 }
 
-.stores__inner .store__container--inner .store__container {
+.page__container .stores__inner .store__container--inner .store__container {
   display: -ms-grid;
   display: grid;
   padding: 0rem 1rem;
@@ -755,7 +766,7 @@ body {
       grid-template-columns: auto auto auto auto;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper {
   max-width: 20vw;
   -webkit-box-shadow: 0px 0px 2px lightgrey;
           box-shadow: 0px 0px 2px lightgrey;
@@ -773,13 +784,13 @@ body {
   transition: 0.1s all ease;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper:hover {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper:hover {
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 30px #a3a3a3;
           box-shadow: 0px 0px 30px #a3a3a3;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image {
   width: 100%;
   -webkit-box-flex: 2;
       -ms-flex: 2;
@@ -787,19 +798,19 @@ body {
   position: relative;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image img {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image img {
   width: 100%;
   height: 200px;
   border-radius: 5px 5px 0px 0px;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form button {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form button {
   background-color: white;
   border: none;
   border-radius: 4px;
@@ -811,32 +822,32 @@ body {
   transition: 0.1s all ease;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form button:hover {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form button:hover {
   opacity: 1;
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 5px white;
           box-shadow: 0px 0px 5px white;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form .hearted {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__image .restaurant__likes form .hearted {
   opacity: 0.9;
   background-color: pink;
   -webkit-box-shadow: 0px 0px 5px pink;
           box-shadow: 0px 0px 5px pink;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details {
   height: 100%;
   background-color: white;
   padding: 0.5rem;
   border-radius: 0px 0px 5px 5px;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__icons a svg {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__icons a svg {
   padding: 0 0.1rem;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__edit {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__edit {
   position: absolute;
   top: 210px;
   right: 10px;
@@ -848,12 +859,12 @@ body {
   border: 1px solid #4c68ff;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__edit:hover {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__edit:hover {
   -webkit-box-shadow: 0px 0px 10px #5e98f0;
           box-shadow: 0px 0px 10px #5e98f0;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__title {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__title {
   padding-top: 0.8rem 2rem;
   font-weight: bold;
   font-size: 18px;
@@ -861,7 +872,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__description {
+.page__container .stores__inner .store__container--inner .store__container .store__wrapper .store__details .store__description {
   color: #b9b9b9;
   margin: 0;
   font-weight: 100;
