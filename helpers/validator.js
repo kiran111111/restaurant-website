@@ -13,7 +13,7 @@ check('name').isLength({min:8}).trim().escape().not().isEmpty()
  check('username','Username should be an email').isEmail().normalizeEmail().isLength({ min: 10 }),
     // password must be at least 5 chars long
     // TODO--- we can add regex to password too  -- I have a good one----
- check('password').trim().isLength({ min: 8 }).withMessage("Password should have atleast 5 letters"),
+ check('password').trim().isLength({ min: 8 }).withMessage("Password should have atleast 8 letters"),
   ]
 }
 
