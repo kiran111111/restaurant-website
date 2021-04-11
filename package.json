@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "It is a restaurant website made with node,express and mongodb",
   "main": "index.js",
-  "now":{
-    "dotenv" : "variables.env.now"
+  "now": {
+    "dotenv": "variables.env.now"
   },
   "scripts": {
     "start": "nodemon index.js"
