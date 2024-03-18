@@ -90,6 +90,10 @@ if(process.env.NODE_ENV !== 'production'){
    
    // Route to expres router
    app.use('/',router);
+
+   app.use((err, req, res, next) => {
+    res.status(500).render('error', { message: err.message });
+  });
    
    // validaiton errors
    app.use(errorHandlers.flashValidationErrors)
