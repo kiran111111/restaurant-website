@@ -7,16 +7,16 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const connectDB = require("./congif/db");
+const connectDB = require("../congif/db");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const pug = require("pug");
 const expressValidator = require("express-validator");
-const router = require("./routes/routes")
+const router = require("../routes/routes")
 const passport = require("passport");
-const helpers = require("./helpers")
-const errorHandlers  = require("./errorHandlers")
+const helpers = require("../helpers")
+const errorHandlers  = require("../errorHandlers")
 
 // setting up the port
 const PORT = process.env.PORT || 4000;
@@ -27,7 +27,7 @@ connectDB();
 
 // Serve up static files from the public folder. Anything -
 // in these files will be served as such
-app.use(express.static(path.join(__dirname,"public")))
+app.use(express.static(path.join(__dirname,"../public")))
 
 // Takes raw request and converts them into usable data
 app.use(bodyParser.urlencoded({extended:false}));
@@ -39,7 +39,7 @@ app.use(bodyParser.json())
 app.set("view engine","pug");
 // this is the folder where we keep our pug files
 // We use template engine to render html
-app.set("views",path.join(__dirname,"./views"));
+app.set("views",path.join(__dirname,"../views"));
 
 
 // Exposes bunch of methods for validating user data
