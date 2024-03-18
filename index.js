@@ -39,7 +39,7 @@ if(process.env.NODE_ENV !== 'production'){
    app.set("view engine","pug");
    // this is the folder where we keep our pug files
    // We use template engine to render html
-   app.set("views","./views");
+   app.set("views",path.join(__dirname,"./views"));
    
    
    // Exposes bunch of methods for validating user data
@@ -95,7 +95,7 @@ if(process.env.NODE_ENV !== 'production'){
    app.use(errorHandlers.flashValidationErrors)
    
    // production errors
-//    app.use(errorHandlers.productionErrors)
+   app.use(errorHandlers.productionErrors)
    // '192.168.0.20'
    
    // Start listening
