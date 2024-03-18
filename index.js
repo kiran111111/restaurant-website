@@ -95,7 +95,7 @@ if(process.env.NODE_ENV !== 'production'){
    app.use(errorHandlers.flashValidationErrors)
    
    // production errors
-   app.use(errorHandlers.productionErrors)
+//    app.use(errorHandlers.productionErrors)
    // '192.168.0.20'
    
    // Start listening
