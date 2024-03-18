@@ -39,7 +39,7 @@ if(process.env.NODE_ENV !== 'production'){
    app.set("view engine","pug");
    // this is the folder where we keep our pug files
    // We use template engine to render html
-   app.set("views",path.join(__dirname,"./views"));
+   app.set("views","./views");
    
    
    // Exposes bunch of methods for validating user data
