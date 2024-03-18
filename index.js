@@ -27,7 +27,7 @@ if(process.env.NODE_ENV !== 'production'){
    
    // Serve up static files from the public folder. Anything -
    // in these files will be served as such
-   app.use(express.static(path.join(__dirname,"public")))
+   app.use(express.static("public"))
    
    // Takes raw request and converts them into usable data
    app.use(bodyParser.urlencoded({extended:false}));
@@ -39,7 +39,7 @@ if(process.env.NODE_ENV !== 'production'){
    app.set("view engine","pug");
    // this is the folder where we keep our pug files
    // We use template engine to render html
-   app.set("views",path.join(__dirname,"./views"));
+   app.set("views","./views");
    
    
    // Exposes bunch of methods for validating user data
